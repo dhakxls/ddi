@@ -1,9 +1,0 @@
-[Unit]
-Description=Sync Tailscale Serve/Funnel mappings for public apps
-Wants=network-online.target
-After=network-online.target tailscaled.service
-
-[Service]
-Type=oneshot
-WorkingDirectory=/home/martinvo/DDI
-ExecStart=/home/martinvo/DDI/scripts/sync_tailscale_routes.sh

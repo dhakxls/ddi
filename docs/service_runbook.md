@@ -93,36 +93,17 @@ For long-running deployments, use `systemd`, `tmux`, or `supervisord` to manage 
 
 ## Keeping Public URLs Stable
 
-Use `scripts/sync_tailscale_routes.sh` any time you reload nginx, reboot the host, or notice `/pp`, `/ddi`, `/ovm`, or `/peds` dropping back to 404s. The helper script resets `tailscale serve` + `tailscale funnel` and reapplies all required mappings in one shot.
+Homelab-level automation now lives outside this repo (see `/home/martinvo/homelab-routing/`). Run `sudo /home/martinvo/homelab-routing/sync_tailscale_routes.sh` whenever you reload nginx, reboot, or notice `/pp`, `/ddi`, `/ovm`, or `/peds` dropping back to 404s. The script ensures all Serve/Funnel mappings exist without clearing them first, so public traffic never sees downtime.
 
-```bash
-chmod +x scripts/sync_tailscale_routes.sh   # once
-sudo scripts/sync_tailscale_routes.sh
-```
-
-The script expects Tailscale at `/usr/bin/tailscale` (override with `TAILSCALE_BIN=/path/to/tailscale`). It prints each Serve/Funnel mapping as it reapplies them and finishes by showing `tailscale funnel status` so you can verify `/`, `/ovm`, `/pp`, `/ddi`, and `/peds` are all registered.
+The helper expects Tailscale at `/usr/bin/tailscale` (override with `TAILSCALE_BIN=/path/to/tailscale`). It prints each Serve/Funnel mapping as it reapplies them and finishes by showing `tailscale funnel status`.
 
 ### Optional systemd automation
 
-`ops/systemd/sync-tailscale.service` + `.timer` can be copied into `/etc/systemd/system/` to run the script at boot and every 10 minutes automatically:
-
-```bash
-sudo cp ops/systemd/sync-tailscale.* /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now sync-tailscale.timer
-```
-
-The timer triggers the service ~1 minute after boot and then every 10 minutes, ensuring the Serve/Funnel mappings are re-applied even if Tailscale resets or the box restarts.
+Systemd units (`sync-tailscale.service` & `.timer`) are deployed directly under `/etc/systemd/system/` and reference the homelab-routing script. They trigger ~1 minute after boot and then every 10 minutes.
 
 ### Optional watchdog
 
-`scripts/check_public_urls.sh` curls `/ovm`, `/pp`, `/ddi`, `/peds` over the public domain. If any return non-200 it automatically reruns the sync script (with `sudo`). You can place it in cron/systemd, e.g.:
-
-```bash
-*/5 * * * * /home/martinvo/DDI/scripts/check_public_urls.sh >> /var/log/public-url-watchdog.log 2>&1
-```
-
-Set `TAILSCALE_SYNC_SCRIPT` or `TAILSCALE_BIN` env vars if the paths differ.
+`/home/martinvo/homelab-routing/check_public_urls.sh` curls `/ovm`, `/pp`, `/ddi`, `/peds` over the public domain. Root cron already runs it every five minutes (`*/5 * * * * ...`) to rerun the sync script automatically if any endpoint fails. Set `TAILSCALE_SYNC_SCRIPT` or `TAILSCALE_BIN` env vars if those paths ever change.
 
 ## Logs
 Each service logs to stdout. For persistent logging, redirect output to files or configure `uvicorn --log-config`.

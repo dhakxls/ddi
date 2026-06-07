@@ -92,10 +92,14 @@ See `docs/service_runbook.md` for environment variables, commands, and health ch
 
 ### Deployment & Public Access Hardening
 
-- `scripts/sync_tailscale_routes.sh` resets and reapplies the `/`, `/ovm`, `/pp`, `/ddi`, `/peds` mappings any time nginx or Tailscale is touched.
-- `ops/systemd/sync-tailscale.service` + `.timer` ensure the sync runs on boot and every 10 minutes (copy to `/etc/systemd/system/` and enable the timer).
-- `scripts/check_public_urls.sh` (cron-ready) curls the public endpoints every five minutes and reruns the sync script automatically if any return non-200.
-- Legacy watchdog `ovm-funnel-ensure.timer` now calls the same sync script, so every automation path converges and prevents stale mappings.
+Homelab-wide URL automation now lives outside this repo in `/home/martinvo/homelab-routing/` so the DDI project stays focused on app code. That directory contains:
+
+1. `sync_tailscale_routes.sh` – single source of truth that reapplies `/`, `/ovm`, `/pp`, `/ddi`, `/peds` mappings without downtime.
+2. `sync-tailscale.service` + `.timer` (installed under `/etc/systemd/system/`) to run the script on boot and every 10 minutes.
+3. `check_public_urls.sh` used by cron (`*/5 * * * *`) to curl each public path and auto-trigger the sync script if any fail.
+4. `ovm-funnel-ensure.timer`/service now exec the same script every minute, so all automations converge on one implementation.
+
+Keep the homelab-routing folder under source control separately if needed; no generated files for the other web apps are stored in this DDI repo.
 
 ## Recent Enhancements
 
