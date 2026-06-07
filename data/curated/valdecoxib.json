@@ -1,0 +1,46 @@
+{
+  "compound_id": "valdecoxib",
+  "compound_name": "Valdecoxib",
+  "cas_number": "",
+  "drugbank_id": "",
+  "fda_application_number": "",
+  "atc_code": "",
+  "therapeutic_class": "",
+  "smiles": "Cc1onc(-c2ccccc2)c1-c1ccc(S(N)(=O)=O)cc1",
+  "inchi_key": "LNPDTQAFDNKSHK-UHFFFAOYSA-N",
+  "molecular_weight_g_mol": 314.4,
+  "logp": null,
+  "pka": null,
+  "polar_surface_area_a2": null,
+  "enzyme_data": {
+    "substrate": {},
+    "inhibition": {},
+    "induction": {}
+  },
+  "known_ddis": [],
+  "pharmacokinetics": {
+    "bioavailability_percent": null,
+    "protein_binding_percent": null,
+    "vd_lkg": null,
+    "clearance_mlminkg": null,
+    "clearance_l_h": null,
+    "half_life_hours": null,
+    "dose_mg": null,
+    "auc_ng_h_ml": null,
+    "cmax_ng_ml": null,
+    "major_metabolites": []
+  },
+  "ddi_studies": [],
+  "sources": [
+    "Kivo dataset"
+  ],
+  "curation_metadata": {
+    "curator": "Martin",
+    "curation_date": "2026-05-20",
+    "quality_rating": "B",
+    "peer_reviewer": "",
+    "peer_review_date": "",
+    "comments": "Imported from Kivo Sheet1 dataset. Dominant enzyme: "
+  },
+  "metabolism_type": "Other"
+}

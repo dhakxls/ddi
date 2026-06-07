@@ -1,0 +1,46 @@
+{
+  "compound_id": "efavirenz",
+  "compound_name": "Efavirenz",
+  "cas_number": "",
+  "drugbank_id": "",
+  "fda_application_number": "",
+  "atc_code": "",
+  "therapeutic_class": "",
+  "smiles": "O=C1Nc2ccc(Cl)cc2[C@@](C#CC2CC2)(C(F)(F)F)O1",
+  "inchi_key": "XPOQHMRABVBWPR-ZDUSSCGKSA-N",
+  "molecular_weight_g_mol": 315.67,
+  "logp": 4.6,
+  "pka": null,
+  "polar_surface_area_a2": null,
+  "enzyme_data": {
+    "substrate": {},
+    "inhibition": {},
+    "induction": {}
+  },
+  "known_ddis": [],
+  "pharmacokinetics": {
+    "bioavailability_percent": null,
+    "protein_binding_percent": null,
+    "vd_lkg": null,
+    "clearance_mlminkg": null,
+    "clearance_l_h": null,
+    "half_life_hours": null,
+    "dose_mg": null,
+    "auc_ng_h_ml": null,
+    "cmax_ng_ml": null,
+    "major_metabolites": []
+  },
+  "ddi_studies": [],
+  "sources": [
+    "Kivo dataset"
+  ],
+  "curation_metadata": {
+    "curator": "Shayne",
+    "curation_date": "2026-05-20",
+    "quality_rating": "B",
+    "peer_reviewer": "",
+    "peer_review_date": "",
+    "comments": "Imported from Kivo Sheet1 dataset. Dominant enzyme: "
+  },
+  "metabolism_type": "Other"
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Tailscale Serve/Funnel sync at boot and hourly
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=10min
+AccuracySec=1min
+Persistent=true
+Unit=sync-tailscale.service
+
+[Install]
+WantedBy=timers.target

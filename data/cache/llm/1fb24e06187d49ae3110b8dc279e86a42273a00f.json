@@ -1,0 +1,1 @@
+{"substrate": {"CYP3A4": {"is_substrate": true}}, "inhibition": {"CYP3A4": {"is_inhibitor": true, "ic50_um": null}}, "induction": {}, "confidence": "high"}

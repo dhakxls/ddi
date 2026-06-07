@@ -1,0 +1,402 @@
+{
+  "Midazolam": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42153754",
+          "title": "Immobilisation and clinical effects of four drug combinations used to chemically capture white rhinoceros ",
+          "journal": "Journal of the South African Veterinary Association",
+          "year": "2026"
+        },
+        {
+          "pmid": "42145758",
+          "title": "Resting energy expenditure changes related to different sedation levels in critically ill patients undergoing invasive mechanical ventilation.",
+          "journal": "Frontiers in medicine",
+          "year": "2026"
+        },
+        {
+          "pmid": "42140797",
+          "title": "Assessing the Potential Clinical Drug-Drug Interactions Between D-1553 (Garsorasib) and CYP450 Enzymes/Transporters via a Cocktail Approach.",
+          "journal": "Clinical therapeutics",
+          "year": "2026"
+        },
+        {
+          "pmid": "42133202",
+          "title": "Pharmacokinetic Drug Interaction Studies of Limnetrelvir with Midazolam and Itraconazole in Healthy Participants.",
+          "journal": "Clinical drug investigation",
+          "year": "2026"
+        },
+        {
+          "pmid": "42126350",
+          "title": "Neonatal PBPK model of midazolam and its metabolites for perinatal asphyxia and therapeutic hypothermia.",
+          "journal": "British journal of clinical pharmacology",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Triazolam": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42091509",
+          "title": "Sleep-Related Eating Disorder among Japanese Psychiatric Outpatients Receiving Ultra-Short-Acting Benzodiazepine Receptor Agonists: A Cross-Sectional Pilot Study.",
+          "journal": "Journal of Nippon Medical School = Nippon Ika Daigaku zasshi",
+          "year": "2026"
+        },
+        {
+          "pmid": "42068797",
+          "title": "Arylacetamide deacetylase deficiency potentiates ketoconazole-induced inhibition of triazolam metabolism in mice.",
+          "journal": "Drug metabolism and pharmacokinetics",
+          "year": "2026"
+        },
+        {
+          "pmid": "41944904",
+          "title": "Ribociclib is not a substrate or inhibitor of Oatp1b-mediated uptake in vivo.",
+          "journal": "Cancer chemotherapy and pharmacology",
+          "year": "2026"
+        },
+        {
+          "pmid": "41869738",
+          "title": "Human Abuse Potential of Single Oral Doses of Sunobinop, a Novel, Highly Potent, and Selective Partial Agonist for Nociceptin/Orphanin-FQ Peptide (NOP) Receptors.",
+          "journal": "Journal of clinical psychopharmacology",
+          "year": ""
+        },
+        {
+          "pmid": "41317564",
+          "title": "Impact of electrostatic distribution in CYP3A4 on the regioselectivity of triazolam metabolism and regulation of its metabolic rate by the iron spin states: Insights from MD simulations and QM calculations.",
+          "journal": "Journal of inorganic biochemistry",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Alprazolam": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "41996628",
+          "title": "Alprazolam Reduces Inflammatory Cytokine Production in Pancreatic Cancer-Associated Fibroblasts.",
+          "journal": "Cancer research communications",
+          "year": "2026"
+        },
+        {
+          "pmid": "41974216",
+          "title": "In vitro metabolomics for the characterization of drugs of abuse and new psychoactive substances in SH-SY5Y cells.",
+          "journal": "Environmental toxicology and pharmacology",
+          "year": "2026"
+        },
+        {
+          "pmid": "41709726",
+          "title": "Retrieval Augmented Generation (RAG) for Evaluating Regulatory Compliance of Drug Information and Clinical Trial Protocols.",
+          "journal": "CPT: pharmacometrics & systems pharmacology",
+          "year": "2026"
+        },
+        {
+          "pmid": "41688868",
+          "title": "Deconvoluting Gut Versus Liver Cytochrome P450 3A4 Function: Drug Probes, Biomarkers, and Tissue Biopsy.",
+          "journal": "Journal of clinical pharmacology",
+          "year": "2026"
+        },
+        {
+          "pmid": "41650595",
+          "title": "Non-targeted screening of alprazolam and flualprazolam metabolites in in vitro metabolism of different species by high-resolution mass spectrometry.",
+          "journal": "Journal of hazardous materials",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Buspirone": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "41770722",
+          "title": "Rational design of a chitosan-coated cobalt ferrite nanozyme coupled with a molecularly imprinted polymer for trace analysis of buspirone in complex matrices: application in spiked human plasma and environmental water samples.",
+          "journal": "Analytical methods : advancing methods and applications",
+          "year": "2026"
+        },
+        {
+          "pmid": "41730795",
+          "title": "Maternal and Pediatric Precision in Therapeutic Knowledge Portal (MPRINT-KP): Landscape Analysis of Pharmacology Research in Maternal and Pediatric Patient Populations.",
+          "journal": "Pharmacotherapy",
+          "year": "2026"
+        },
+        {
+          "pmid": "41673731",
+          "title": "Sertraline-induced bruxism: a case report and review of the literature.",
+          "journal": "Journal of medical case reports",
+          "year": "2026"
+        },
+        {
+          "pmid": "41646208",
+          "title": "Protracted escitalopram discontinuation syndrome and serotonin toxicity associated with CYP2C19 poor metabolism: A case report.",
+          "journal": "The mental health clinician",
+          "year": "2026"
+        },
+        {
+          "pmid": "41298375",
+          "title": "Post-lanosterol inhibition profile based classification of commonly used prescription medications.",
+          "journal": "Translational psychiatry",
+          "year": "2025"
+        }
+      ]
+    }
+  },
+  "Quetiapine": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42150732",
+          "title": "Risk of adverse events associated with co-administration of quetiapine and Bupleuri Radix: a population-based cohort study.",
+          "journal": "Pharmacological research",
+          "year": "2026"
+        },
+        {
+          "pmid": "42143189",
+          "title": "Multi-objective optimization in population pharmacokinetic model selection and optimization: application of NSGA-II in pyDarwin.",
+          "journal": "Journal of pharmacokinetics and pharmacodynamics",
+          "year": "2026"
+        },
+        {
+          "pmid": "42129067",
+          "title": "Diagnosis and Medication Treatment of Schizophrenia in Adolescents.",
+          "journal": "Drugs",
+          "year": "2026"
+        },
+        {
+          "pmid": "42125501",
+          "title": "Longitudinal Management of Post-traumatic Brain Injury Bipolar-Spectrum Disorder With Low-Dose Oral Glutamatergic Augmentation: Extended Follow-Up Revealing Induction, Overshoot, Stabilization, and Transition to PRN Maintenance.",
+          "journal": "Cureus",
+          "year": "2026"
+        },
+        {
+          "pmid": "42104765",
+          "title": "Hepatitis C therapy with pangenotypic direct-acting antivirals: Drug-drug interactions in drug-using HCV patients and antipsychotic-treated HCV patients.",
+          "journal": "Adicciones",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Lurasidone": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42129067",
+          "title": "Diagnosis and Medication Treatment of Schizophrenia in Adolescents.",
+          "journal": "Drugs",
+          "year": "2026"
+        },
+        {
+          "pmid": "42085924",
+          "title": "In Vitro Reaction Phenotyping and Projection of Drug Interactions Mediated by Cytochrome P450 Enzymes for Central Nervous System Drugs as Victims: Implications for Safety in Vulnerable Populations.",
+          "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+          "year": "2026"
+        },
+        {
+          "pmid": "41953612",
+          "title": "Pico-molar determination of lurasidone hydrochloride in pharmaceutical formulations using PVC-membrane bulk Miptode.",
+          "journal": "RSC advances",
+          "year": "2026"
+        },
+        {
+          "pmid": "41847604",
+          "title": "Lurasidone in Schizophrenia Management: A Comprehensive 12-Week Post-Marketing Surveillance Study in Chinese Patients.",
+          "journal": "Neuropsychiatric disease and treatment",
+          "year": "2026"
+        },
+        {
+          "pmid": "41750394",
+          "title": "Lurasidone Sub-Chronic Treatment During Adolescence Modulates Inflammatory and Inositol-Related Metabolic Pathways in the Prefrontal Cortex of Adult Male Rats Exposed to Prenatal Stress.",
+          "journal": "Biomolecules",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Simvastatin": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42116389",
+          "title": "Identifying therapeutic target genes for stroke through systematic druggable Mendelian randomization analysis.",
+          "journal": "Medicine",
+          "year": "2026"
+        },
+        {
+          "pmid": "42087353",
+          "title": "Simvastatin Restores Cisplatin Sensitivity by Suppressing the Caveolin-1-Mediated PI3K/AKT Signaling Pathway in Cisplatin-Resistant Cervical Cancer Cells.",
+          "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+          "year": "2026"
+        },
+        {
+          "pmid": "42071246",
+          "title": "Effect of zoledronic acid combined with simvastatin on postoperative recovery of elderly patients with osteoporotic intertrochanteric fractures.",
+          "journal": "Journal of orthopaedic surgery and research",
+          "year": "2026"
+        },
+        {
+          "pmid": "42066385",
+          "title": "Preparation of M2 macrophage membrane hybrid lipid nanoparticles based on microfluidic device for atherosclerosis treatment.",
+          "journal": "Colloids and surfaces. B, Biointerfaces",
+          "year": "2026"
+        },
+        {
+          "pmid": "42063960",
+          "title": "Red yeast rice extract's impact on liver health: a pharmacological and metabolomic exploration.",
+          "journal": "Frontiers in nutrition",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Lovastatin": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42099899",
+          "title": "Identification of ",
+          "journal": "International journal of chronic obstructive pulmonary disease",
+          "year": "2026"
+        },
+        {
+          "pmid": "42099815",
+          "title": "Cytokinin and auxin metabolism mediation of elevated [CO ",
+          "journal": "Horticulture research",
+          "year": "2026"
+        },
+        {
+          "pmid": "42087353",
+          "title": "Simvastatin Restores Cisplatin Sensitivity by Suppressing the Caveolin-1-Mediated PI3K/AKT Signaling Pathway in Cisplatin-Resistant Cervical Cancer Cells.",
+          "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+          "year": "2026"
+        },
+        {
+          "pmid": "42000307",
+          "title": "Improving the yield of Monacolin K in solid-state fermentation of Monascus purpureus H164 based on fermentation optimization strategy.",
+          "journal": "Fungal biology",
+          "year": "2026"
+        },
+        {
+          "pmid": "41966593",
+          "title": "Interaction between amphiphilic drugs and biofilms revealed by surface-enhanced Raman spectroscopy.",
+          "journal": "Spectrochimica acta. Part A, Molecular and biomolecular spectroscopy",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Atorvastatin": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42156602",
+          "title": "Chronic atorvastatin treatment weakens procontractile influence of NADPH oxidase derived ROS in systemic murine arteries.",
+          "journal": "Pflugers Archiv : European journal of physiology",
+          "year": "2026"
+        },
+        {
+          "pmid": "42148367",
+          "title": "Drug-Drug Interaction of Chiglitazar with Empagliflozin, Atorvastatin, and Valsartan: An Open-Label, Single-Center, Self-Control, 3-Period Study.",
+          "journal": "Drug design, development and therapy",
+          "year": "2026"
+        },
+        {
+          "pmid": "42142584",
+          "title": "The retinol metabolizing enzyme DHRS3 coordinates antigen presentation, endothelial stability, and cholesterol metabolism to suppress hepatocellular carcinoma progression.",
+          "journal": "The Journal of biological chemistry",
+          "year": "2026"
+        },
+        {
+          "pmid": "42142508",
+          "title": "Impact of SLCO1B1 and ABCB1 variants on statin efficacy and toxicity in a Tunisian population.",
+          "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+          "year": "2026"
+        },
+        {
+          "pmid": "42133048",
+          "title": "The Effect of the combination therapy of statin and dapagliflozin, a selective inhibitor of sodium_glucose Co-transporter type 2, in the treatment of Ischemic heart disease with heart failure: A randomized controlled trial.",
+          "journal": "European journal of clinical pharmacology",
+          "year": "2026"
+        }
+      ]
+    }
+  },
+  "Sildenafil": {
+    "status": "success",
+    "data": {
+      "substrate": {},
+      "inhibition": {},
+      "induction": {},
+      "papers": [
+        {
+          "pmid": "42139248",
+          "title": "Serum peptidomic profiling and peptide mass fingerprinting reveal signatures associated with peroxisomal and mitochondrial pathways in MMVD-associated cardiorenal syndrome in dogs.",
+          "journal": "PloS one",
+          "year": "2026"
+        },
+        {
+          "pmid": "42082063",
+          "title": "Predicting plasma concentration-time profiles of orally disintegrating tablets with delayed absorption under fed conditions without water.",
+          "journal": "International journal of pharmaceutics",
+          "year": "2026"
+        },
+        {
+          "pmid": "42035601",
+          "title": "The novel PDE5 inhibitor CPD1 attenuates pulmonary arterial hypertension through dual modulation of cGMP and TRPM8-mediated pathways.",
+          "journal": "Bioorganic chemistry",
+          "year": "2026"
+        },
+        {
+          "pmid": "42023995",
+          "title": "Effect of Once-Daily Macitentan 75 mg on the Pharmacokinetics of Sildenafil, Riociguat, or Rosuvastatin in Healthy Male Participants.",
+          "journal": "Journal of clinical pharmacology",
+          "year": "2026"
+        },
+        {
+          "pmid": "42008323",
+          "title": "Traditional Approaches to Treating Erectile Dysfunction in Africa.",
+          "journal": "Nigerian journal of physiological sciences : official publication of the Physiological Society of Nigeria",
+          "year": "2025"
+        }
+      ]
+    }
+  }
+}

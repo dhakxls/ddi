@@ -1,0 +1,53 @@
+{
+  "compound_id": "s_warfarin",
+  "compound_name": "S-warfarin",
+  "cas_number": "",
+  "drugbank_id": "",
+  "fda_application_number": "",
+  "atc_code": "",
+  "therapeutic_class": "",
+  "smiles": "CC(=O)C[C@@H](c1ccccc1)c1c(O)c2ccccc2oc1=O",
+  "inchi_key": "PJVWKTKQMONHTI-HNNXBMFYSA-N",
+  "molecular_weight_g_mol": 308.3,
+  "logp": null,
+  "pka": null,
+  "polar_surface_area_a2": null,
+  "enzyme_data": {
+    "substrate": {
+      "CYP2C9": {
+        "is_substrate": true,
+        "km_um": null,
+        "vmax": null,
+        "clint": null,
+        "fm": null,
+        "source": "Kivo Dataset"
+      }
+    },
+    "inhibition": {},
+    "induction": {}
+  },
+  "known_ddis": [],
+  "pharmacokinetics": {
+    "bioavailability_percent": null,
+    "protein_binding_percent": null,
+    "vd_lkg": null,
+    "clearance_mlminkg": null,
+    "clearance_l_h": null,
+    "half_life_hours": null,
+    "dose_mg": null,
+    "auc_ng_h_ml": null,
+    "cmax_ng_ml": null,
+    "major_metabolites": []
+  },
+  "ddi_studies": [],
+  "sources": [],
+  "curation_metadata": {
+    "curator": "Martin",
+    "curation_date": "2026-05-20",
+    "quality_rating": "B",
+    "peer_reviewer": "",
+    "peer_review_date": "",
+    "comments": "Imported from Kivo Sheet1 dataset"
+  },
+  "metabolism_type": "Other"
+}

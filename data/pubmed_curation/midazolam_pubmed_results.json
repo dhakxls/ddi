@@ -1,0 +1,111 @@
+{
+  "inhibition": {},
+  "fm": {},
+  "substrate_mentions": [
+    "CYP3A4"
+  ],
+  "papers": [
+    {
+      "pmid": "42153754",
+      "title": "Immobilisation and clinical effects of four drug combinations used to chemically capture white rhinoceros ",
+      "authors": [
+        "Ndunda MM",
+        "Buss PE",
+        "Gleed RD",
+        "Donaldson AC",
+        "Leiberich M",
+        "Hooijberg EH",
+        "Snelling EP",
+        "Boesch JM",
+        "Meyer LCR"
+      ],
+      "journal": "Journal of the South African Veterinary Association",
+      "year": "2026",
+      "abstract": "Etorphine is an ultra-potent opioid used to immobilise white rhinoceros "
+    },
+    {
+      "pmid": "42145758",
+      "title": "Resting energy expenditure changes related to different sedation levels in critically ill patients undergoing invasive mechanical ventilation.",
+      "authors": [
+        "Mei C",
+        "Ye Z",
+        "Zou H",
+        "Hu Z",
+        "Wu Y",
+        "Liu S"
+      ],
+      "journal": "Frontiers in medicine",
+      "year": "2026",
+      "abstract": "The study aimed to assess the effects of resting energy expenditure (REE) on critically ill individuals requiring mechanical ventilation with different degrees of sedation."
+    },
+    {
+      "pmid": "42133202",
+      "title": "Pharmacokinetic Drug Interaction Studies of Limnetrelvir with Midazolam and Itraconazole in Healthy Participants.",
+      "authors": [
+        "Desai JM",
+        "Chowdhury EA",
+        "Ali I",
+        "Lee CM",
+        "Schmidt JM",
+        "Orejudos A",
+        "Yadlapalli SL",
+        "Gupta S",
+        "Ocampo C",
+        "Miller MG",
+        "Salem AH",
+        "Mostafa NM"
+      ],
+      "journal": "Clinical drug investigation",
+      "year": "2026",
+      "abstract": "Limnetrelvir is an oral inhibitor of the SARS-CoV-2 main protease (Mpro) and was developed with the aim of achieving broad-spectrum efficacy against SARS-CoV-2 and emerging variants. The aim of this work was to evaluate potential CYP3A4 drug-drug interactions (DDIs) of limnetrelvir."
+    },
+    {
+      "pmid": "42126350",
+      "title": "Neonatal PBPK model of midazolam and its metabolites for perinatal asphyxia and therapeutic hypothermia.",
+      "authors": [
+        "Leys K",
+        "Ozbey A",
+        "Huang MC",
+        "Macente J",
+        "Stroe MS",
+        "de Haan TR",
+        "Groenendaal F",
+        "Jacqz-Aigrain E",
+        "de Wildt SN",
+        "Allegaert K",
+        "Van Cruchten S",
+        "Smits A",
+        "Annaert P"
+      ],
+      "journal": "British journal of clinical pharmacology",
+      "year": "2026",
+      "abstract": "Therapeutic hypothermia (TH) decreases morbidity and mortality in neonates with perinatal asphyxia (PA) and moderate-to-severe hypoxic-ischaemic encephalopathy. Midazolam is an antiepileptic and substrate of CYP3A4. Drug metabolism during PA/TH remains partially characterized, and disentangling effects of PA and TH is difficult, making precision dosing challenging. The I-PREDICT project aims to develop a framework for drug disposition in PA/TH neonates, using physiologically based pharmacokinetic (PBPK) modelling. The predictive performance of the model was explored for midazolam and its active metabolites, 1'-hydroxymidazolam and 1'-hydroxymidazolam-O-glucuronide, in neonates with PA/TH."
+    },
+    {
+      "pmid": "42117605",
+      "title": "Mapping the Clinical Evidence on Remimazolam in Anaesthesia: A Protocol for a Scoping Review.",
+      "authors": [
+        "Nilsson EHVS",
+        "Abood I",
+        "M\u00f8ller AM"
+      ],
+      "journal": "Acta anaesthesiologica Scandinavica",
+      "year": "2026",
+      "abstract": "Remimazolam is a recently introduced benzodiazepine used for procedural sedation and general anaesthesia. Its pharmacokinetic profile, including rapid metabolism and predictable recovery, has generated interest in its potential advantages compared with traditional sedatives such as midazolam and propofol."
+    },
+    {
+      "pmid": "42091510",
+      "title": "Midazolam and Dexmedetomidine Promoted Migration of Human Lung Adenocarcinoma A549 Cells.",
+      "authors": [
+        "Ishikawa A",
+        "Iwasaki M",
+        "Tomihari M",
+        "Yamamoto M",
+        "Ishikawa M"
+      ],
+      "journal": "Journal of Nippon Medical School = Nippon Ika Daigaku zasshi",
+      "year": "2026",
+      "abstract": "The numerous studies of the effects of intravenous anesthetics on cancer have suggested potential effects on cell migration and postoperative outcomes. This study compared the direct effects of midazolam and dexmedetomidine on A549 human lung adenocarcinoma cells."
+    }
+  ]
+}

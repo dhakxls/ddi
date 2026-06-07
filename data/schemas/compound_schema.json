@@ -1,0 +1,416 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Compound Data Schema",
+  "description": "Schema for curated compound data for DDI prediction",
+  "type": "object",
+  "properties": {
+    "compound_id": {
+      "type": "string",
+      "description": "Unique identifier for the compound"
+    },
+    "compound_name": {
+      "type": "string",
+      "description": "INN or generic name"
+    },
+    "cas_number": {
+      "type": "string",
+      "pattern": "^\\d{2,7}-\\d{2}-\\d$",
+      "description": "CAS Registry Number"
+    },
+    "drugbank_id": {
+      "type": "string",
+      "description": "DrugBank identifier"
+    },
+    "fda_application_number": {
+      "type": "string",
+      "description": "FDA NDA/ANDA/BLA number"
+    },
+    "atc_code": {
+      "type": "string",
+      "description": "Anatomical Therapeutic Chemical code"
+    },
+    "therapeutic_class": {
+      "type": "string",
+      "description": "Therapeutic class"
+    },
+    "smiles": {
+      "type": "string",
+      "description": "SMILES string from PubChem or ChEMBL"
+    },
+    "inchi_key": {
+      "type": "string",
+      "description": "InChIKey from PubChem"
+    },
+    "molecular_weight_g_mol": {
+      "type": "number",
+      "description": "Molecular weight in g/mol"
+    },
+    "logp": {
+      "type": "number",
+      "description": "logP value"
+    },
+    "pka": {
+      "type": "number",
+      "description": "Primary pKa value"
+    },
+    "polar_surface_area_a2": {
+      "type": "number",
+      "description": "Topological polar surface area in Å²"
+    },
+    "enzyme_data": {
+      "type": "object",
+      "properties": {
+        "substrate": {
+          "type": "object",
+          "description": "Enzyme substrate information",
+          "properties": {
+            "CYP1A2": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2B6": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2C8": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2C9": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2C19": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2D6": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP2E1": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP3A4": {
+              "$ref": "#/definitions/enzyme_substrate"
+            },
+            "CYP3A5": {
+              "$ref": "#/definitions/enzyme_substrate"
+            }
+          }
+        },
+        "inhibition": {
+          "type": "object",
+          "description": "Enzyme inhibition information",
+          "properties": {
+            "CYP1A2": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2B6": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2C8": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2C9": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2C19": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2D6": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP2E1": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP3A4": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            },
+            "CYP3A5": {
+              "$ref": "#/definitions/enzyme_inhibition"
+            }
+          }
+        },
+        "induction": {
+          "type": "object",
+          "description": "Enzyme induction information",
+          "properties": {
+            "CYP1A2": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2B6": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2C8": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2C9": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2C19": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2D6": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP2E1": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP3A4": {
+              "$ref": "#/definitions/enzyme_induction"
+            },
+            "CYP3A5": {
+              "$ref": "#/definitions/enzyme_induction"
+            }
+          }
+        }
+      }
+    },
+    "known_ddis": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ddi_entry"
+      }
+    },
+    "pharmacokinetics": {
+      "$ref": "#/definitions/pharmacokinetics"
+    },
+    "ddi_studies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ddi_study"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/source"
+      }
+    },
+    "curation_metadata": {
+      "$ref": "#/definitions/curation_metadata"
+  },
+  "metabolism_type": {
+    "type": "string",
+    "enum": ["CYP", "UGT", "Renal", "Mixed", "Other"],
+    "description": "Primary metabolism type"
+  }
+},
+  "required": ["compound_id", "compound_name", "enzyme_data", "sources", "curation_metadata"],
+  "definitions": {
+    "enzyme_substrate": {
+      "type": "object",
+      "properties": {
+        "is_substrate": {
+          "type": "boolean"
+        },
+        "km_um": {
+          "type": "number",
+          "description": "Km in micromolar"
+        },
+        "vmax": {
+          "type": "number",
+          "description": "Vmax in pmol/min/mg protein"
+        },
+        "clint": {
+          "type": "number",
+          "description": "Intrinsic clearance in μL/min/mg protein"
+        },
+        "fm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Fraction metabolized (0-1)"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "enzyme_inhibition": {
+      "type": "object",
+      "properties": {
+        "is_inhibitor": {
+          "type": "boolean"
+        },
+        "inhibition_type": {
+          "type": "string",
+          "enum": ["strong", "moderate", "weak"]
+        },
+        "ic50_um": {
+          "type": "number",
+          "description": "IC50 in micromolar"
+        },
+        "ki_um": {
+          "type": "number",
+          "description": "Ki in micromolar"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "enzyme_induction": {
+      "type": "object",
+      "properties": {
+        "is_inducer": {
+          "type": "boolean"
+        },
+        "induction_type": {
+          "type": "string",
+          "enum": ["strong", "moderate", "weak"]
+        },
+        "fold_change": {
+          "type": "number",
+          "description": "Fold change in enzyme activity"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "ddi_entry": {
+      "type": "object",
+      "properties": {
+        "interacting_drug": {
+          "type": "string"
+        },
+        "risk_category": {
+          "type": "string",
+          "enum": ["contraindicated", "major", "moderate", "minor"]
+        },
+        "clinical_effect": {
+          "type": "string"
+        },
+        "evidence_source": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "pharmacokinetics": {
+      "type": "object",
+      "properties": {
+        "bioavailability_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "protein_binding_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "vd_lkg": {
+          "type": "number",
+          "description": "Volume of distribution in L/kg"
+        },
+        "clearance_mlminkg": {
+          "type": "number",
+          "description": "Clearance in mL/min/kg"
+        },
+        "clearance_l_h": {
+          "type": "number",
+          "description": "Systemic clearance in L/h"
+        },
+        "half_life_hours": {
+          "type": "number",
+          "description": "Half-life in hours"
+        },
+        "dose_mg": {
+          "type": "number",
+          "description": "Typical adult dose in mg"
+        },
+        "auc_ng_h_ml": {
+          "type": "number",
+          "description": "Adult AUC in ng*h/mL"
+        },
+        "cmax_ng_ml": {
+          "type": "number",
+          "description": "Adult Cmax in ng/mL"
+        },
+        "major_metabolites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": ["FDA", "EMA", "DrugBank", "PubMed", "ClinicalTrial", "Other"]
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "access_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "curation_metadata": {
+      "type": "object",
+      "properties": {
+        "curator": {
+          "type": "string"
+        },
+        "curation_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "quality_rating": {
+          "type": "string",
+          "enum": ["A", "B", "C"]
+        },
+        "peer_reviewer": {
+          "type": "string"
+        },
+        "peer_review_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "comments": {
+          "type": "string"
+        }
+      }
+    },
+    "ddi_study": {
+      "type": "object",
+      "properties": {
+        "inhibitor_tested": {
+          "type": "string",
+          "description": "Drug used in DDI study"
+        },
+        "enzyme_inhibited": {
+          "type": "string",
+          "description": "Enzyme inhibited in the study"
+        },
+        "auc_fold_change": {
+          "type": "number",
+          "description": "Fold change in AUC (e.g., 3.2 for 3.2x increase)"
+        },
+        "cmax_fold_change": {
+          "type": "number",
+          "description": "Fold change in Cmax"
+        },
+        "study_design": {
+          "type": "string",
+          "description": "Study design details"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source of DDI study data"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

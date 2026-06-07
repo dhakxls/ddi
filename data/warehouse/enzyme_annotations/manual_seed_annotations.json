@@ -1,0 +1,235 @@
+{
+  "source": "manual_seed",
+  "generated_at": "2026-05-25T17:54:37.135064Z",
+  "records": [
+    {
+      "compound_key": "midazolam",
+      "display_name": "Midazolam",
+      "synonyms": [
+        "midazolam"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL714"
+      },
+      "enzyme_data": {
+        "substrate": {
+          "CYP3A4": {
+            "is_substrate": true,
+            "fm": 0.85,
+            "source": "ChEMBL",
+            "evidence": "Midazolam is extensively metabolized by CYP3A4.",
+            "references": [
+              "PMID:123456"
+            ]
+          }
+        },
+        "inhibition": {
+          "CYP3A5": {
+            "is_inhibitor": true,
+            "inhibition_type": "weak",
+            "source": "FDA_SPL",
+            "evidence": "Clinical studies indicate weak inhibition of CYP3A5.",
+            "references": [
+              "NDA-12345"
+            ]
+          }
+        },
+        "induction": {}
+      }
+    },
+    {
+      "compound_key": "acetaminophen",
+      "display_name": "Acetaminophen",
+      "synonyms": [
+        "acetaminophen",
+        "paracetamol"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL112"
+      },
+      "enzyme_data": {
+        "substrate": {
+          "CYP1A2": {
+            "is_substrate": true,
+            "fm": 0.15,
+            "source": "ManualCuration",
+            "evidence": "Hepatic microsome studies implicate CYP1A2 in acetaminophen oxidation.",
+            "references": [
+              "PMID:27352015"
+            ]
+          },
+          "CYP2E1": {
+            "is_substrate": true,
+            "fm": 0.45,
+            "source": "ManualCuration",
+            "evidence": "CYP2E1 is the dominant pathway for NAPQI formation from acetaminophen.",
+            "references": [
+              "PMID:18474645"
+            ]
+          },
+          "CYP3A4": {
+            "is_substrate": true,
+            "fm": 0.1,
+            "source": "ManualCuration",
+            "evidence": "CYP3A4 provides a minor oxidative pathway for acetaminophen.",
+            "references": [
+              "PMID:19126598"
+            ]
+          }
+        },
+        "inhibition": {
+          "CYP2C9": {
+            "is_inhibitor": true,
+            "inhibition_type": "weak",
+            "source": "ManualCuration",
+            "evidence": "High-dose acetaminophen competitively inhibits CYP2C9-mediated metabolism.",
+            "references": [
+              "PMID:10859128"
+            ]
+          }
+        },
+        "induction": {}
+      }
+    },
+    {
+      "compound_key": "warfarin",
+      "display_name": "Warfarin",
+      "synonyms": [
+        "warfarin"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL113"
+      },
+      "enzyme_data": {
+        "substrate": {
+          "CYP2C9": {
+            "is_substrate": true,
+            "fm": 0.85,
+            "source": "ManualCuration",
+            "evidence": "S-warfarin clearance is primarily mediated by CYP2C9.",
+            "references": [
+              "PMID:10631623"
+            ]
+          },
+          "CYP1A2": {
+            "is_substrate": true,
+            "fm": 0.07,
+            "source": "ManualCuration",
+            "evidence": "R-warfarin undergoes minor CYP1A2 metabolism.",
+            "references": [
+              "PMID:10631623"
+            ]
+          }
+        },
+        "inhibition": {},
+        "induction": {}
+      }
+    },
+    {
+      "compound_key": "ketoconazole",
+      "display_name": "Ketoconazole",
+      "synonyms": [
+        "ketoconazole"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL687"
+      },
+      "enzyme_data": {
+        "substrate": {
+          "CYP3A4": {
+            "is_substrate": true,
+            "fm": 0.9,
+            "source": "ManualCuration",
+            "evidence": "Hepatic microsome studies show ketoconazole undergoes extensive CYP3A4 metabolism.",
+            "references": [
+              "PMID:15258107"
+            ]
+          }
+        },
+        "inhibition": {
+          "CYP3A4": {
+            "is_inhibitor": true,
+            "inhibition_type": "strong",
+            "ic50_um": 0.03,
+            "source": "ManualCuration",
+            "evidence": "Potent competitive inhibition of CYP3A4 with sub-micromolar Ki values.",
+            "references": [
+              "PMID:16637719"
+            ]
+          }
+        },
+        "induction": {}
+      }
+    },
+    {
+      "compound_key": "clarithromycin",
+      "display_name": "Clarithromycin",
+      "synonyms": [
+        "clarithromycin"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL756"
+      },
+      "enzyme_data": {
+        "substrate": {
+          "CYP3A4": {
+            "is_substrate": true,
+            "fm": 0.7,
+            "source": "ManualCuration",
+            "evidence": "CYP3A4 is the predominant pathway for clarithromycin N-demethylation.",
+            "references": [
+              "PMID:10901709"
+            ]
+          }
+        },
+        "inhibition": {
+          "CYP3A4": {
+            "is_inhibitor": true,
+            "inhibition_type": "moderate",
+            "source": "ManualCuration",
+            "evidence": "Clinical DDI studies show clarithromycin moderately inhibits CYP3A4 substrates.",
+            "references": [
+              "PMID:9421311"
+            ]
+          }
+        },
+        "induction": {}
+      }
+    },
+    {
+      "compound_key": "rifampin",
+      "display_name": "Rifampin",
+      "synonyms": [
+        "rifampicin",
+        "rifampin"
+      ],
+      "identifiers": {
+        "chembl_id": "CHEMBL1737"
+      },
+      "enzyme_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {
+          "CYP3A4": {
+            "is_inducer": true,
+            "induction_type": "strong",
+            "source": "ManualCuration",
+            "evidence": "Rifampin activates PXR leading to strong induction of CYP3A4 expression.",
+            "references": [
+              "PMID:16189364"
+            ]
+          },
+          "CYP2C9": {
+            "is_inducer": true,
+            "induction_type": "moderate",
+            "source": "ManualCuration",
+            "evidence": "Repeated rifampin dosing induces CYP2C9 activity in vivo.",
+            "references": [
+              "PMID:16189364"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

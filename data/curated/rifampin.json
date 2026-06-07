@@ -1,0 +1,46 @@
+{
+  "compound_id": "rifampin",
+  "compound_name": "Rifampin",
+  "cas_number": "",
+  "drugbank_id": "",
+  "fda_application_number": "",
+  "atc_code": "",
+  "therapeutic_class": "",
+  "smiles": "CO[C@H]1/C=C/O[C@@]2(C)Oc3c(C)c(O)c4c(O)c(c(/C=N/N5CCN(C)CC5)c(O)c4c3C2=O)NC(=O)/C(C)=C\\C=C\\[C@H](C)[C@H](O)[C@@H](C)[C@@H](O)[C@@H](C)[C@H](OC(C)=O)[C@@H]1C",
+  "inchi_key": "JQXXHWHPUNPDRT-WLSIYKJHSA-N",
+  "molecular_weight_g_mol": 822.9,
+  "logp": 2.7,
+  "pka": null,
+  "polar_surface_area_a2": null,
+  "enzyme_data": {
+    "substrate": {},
+    "inhibition": {},
+    "induction": {}
+  },
+  "known_ddis": [],
+  "pharmacokinetics": {
+    "bioavailability_percent": null,
+    "protein_binding_percent": null,
+    "vd_lkg": null,
+    "clearance_mlminkg": null,
+    "clearance_l_h": null,
+    "half_life_hours": null,
+    "dose_mg": null,
+    "auc_ng_h_ml": null,
+    "cmax_ng_ml": null,
+    "major_metabolites": []
+  },
+  "ddi_studies": [],
+  "sources": [
+    "Kivo dataset"
+  ],
+  "curation_metadata": {
+    "curator": "Shayne",
+    "curation_date": "2026-05-20",
+    "quality_rating": "B",
+    "peer_reviewer": "",
+    "peer_review_date": "",
+    "comments": "Imported from Kivo Sheet1 dataset. Dominant enzyme: "
+  },
+  "metabolism_type": "Other"
+}

@@ -1,0 +1,121 @@
+{
+  "substrate": {
+    "CYP3A4": {
+      "is_substrate": true,
+      "fm": null
+    }
+  },
+  "inhibition": {
+    "CYP3A4": {
+      "is_inhibitor": false
+    }
+  },
+  "induction": {},
+  "papers": [
+    {
+      "pmid": "42153754",
+      "title": "Immobilisation and clinical effects of four drug combinations used to chemically capture white rhinoceros ",
+      "journal": "Journal of the South African Veterinary Association",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {
+          "CYP3A4": {
+            "is_inhibitor": false
+          }
+        },
+        "induction": {},
+        "confidence": "high"
+      }
+    },
+    {
+      "pmid": "42145758",
+      "title": "Resting energy expenditure changes related to different sedation levels in critically ill patients undergoing invasive mechanical ventilation.",
+      "journal": "Frontiers in medicine",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "high"
+      }
+    },
+    {
+      "pmid": "42140797",
+      "title": "Assessing the Potential Clinical Drug-Drug Interactions Between D-1553 (Garsorasib) and CYP450 Enzymes/Transporters via a Cocktail Approach.",
+      "journal": "Clinical therapeutics",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "low"
+      }
+    },
+    {
+      "pmid": "42133202",
+      "title": "Pharmacokinetic Drug Interaction Studies of Limnetrelvir with Midazolam and Itraconazole in Healthy Participants.",
+      "journal": "Clinical drug investigation",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "high"
+      }
+    },
+    {
+      "pmid": "42126350",
+      "title": "Neonatal PBPK model of midazolam and its metabolites for perinatal asphyxia and therapeutic hypothermia.",
+      "journal": "British journal of clinical pharmacology",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {
+          "CYP3A4": {
+            "is_substrate": true,
+            "fm": null
+          }
+        },
+        "inhibition": {},
+        "induction": {},
+        "confidence": "high"
+      }
+    },
+    {
+      "pmid": "42117605",
+      "title": "Mapping the Clinical Evidence on Remimazolam in Anaesthesia: A Protocol for a Scoping Review.",
+      "journal": "Acta anaesthesiologica Scandinavica",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "low"
+      }
+    },
+    {
+      "pmid": "42091510",
+      "title": "Midazolam and Dexmedetomidine Promoted Migration of Human Lung Adenocarcinoma A549 Cells.",
+      "journal": "Journal of Nippon Medical School = Nippon Ika Daigaku zasshi",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "low"
+      }
+    },
+    {
+      "pmid": "42066734",
+      "title": "Development of a generic physiologically based pharmacokinetic model to predict clinical pharmacokinetics and assess drug-drug interaction risks for valine-citrulline-monomethyl auristatin E-based antibody-drug conjugates.",
+      "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+      "year": "2026",
+      "extracted_data": {
+        "substrate": {},
+        "inhibition": {},
+        "induction": {},
+        "confidence": "low"
+      }
+    }
+  ]
+}

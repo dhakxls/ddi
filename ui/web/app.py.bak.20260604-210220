@@ -1,0 +1,304 @@
+"""UI FastAPI app delegating to modular prediction and feature services."""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+from functools import lru_cache
+from pathlib import Path
+from typing import Dict, Optional
+
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
+
+# Access shared scripts (DataMerger)
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "scripts"))
+
+from api_clients import DataMerger
+try:
+    from .service_clients import FeatureServiceClient, PredictionServiceClient
+except ImportError:
+    from service_clients import FeatureServiceClient, PredictionServiceClient
+
+
+BASE_DIR = Path(__file__).parent
+app = FastAPI(title="DDI Prediction MVP", version="0.2.0")
+
+# Setup templates and static files
+templates_dir = BASE_DIR / "templates"
+templates_dir.mkdir(exist_ok=True)
+static_dir = BASE_DIR / "static"
+static_dir.mkdir(exist_ok=True)
+
+from jinja2 import Environment, FileSystemLoader
+
+jinja_env = Environment(
+    loader=FileSystemLoader(str(templates_dir)),
+    autoescape=False,
+    cache_size=0,
+)
+
+prediction_client = PredictionServiceClient(
+    base_url=os.environ.get("PREDICTION_SERVICE_URL", "http://localhost:8090")
+)
+feature_client = FeatureServiceClient(
+    base_url=os.environ.get("FEATURE_SERVICE_URL", "http://localhost:8091")
+)
+data_merger = DataMerger()
+
+ANNOTATIONS_PATH = (
+    Path(__file__).parent.parent.parent / "data" / "warehouse" / "enzyme_annotations"
+)
+
+
+@lru_cache(maxsize=1)
+def load_annotation_index() -> dict[str, dict]:
+    index: dict[str, dict] = {}
+    if not ANNOTATIONS_PATH.exists():
+        return index
+    for payload_path in ANNOTATIONS_PATH.glob("*_annotations.json"):
+        try:
+            with open(payload_path, "r") as fh:
+                payload = json.load(fh)
+            for record in payload.get("records", []):
+                key = (record.get("compound_key") or "").lower()
+                if key:
+                    index[key] = record.get("enzyme_data", {})
+        except Exception:
+            continue
+    return index
+
+
+# Pydantic models for API
+class EnzymeData(BaseModel):
+    is_substrate: bool = False
+    km_um: Optional[float] = None
+    vmax: Optional[float] = None
+    clint: Optional[float] = None
+    fm: Optional[float] = None
+    source: str = ""
+
+
+class InhibitionData(BaseModel):
+    is_inhibitor: bool = False
+    inhibition_type: Optional[str] = None
+    ic50_um: Optional[float] = None
+    ki_um: Optional[float] = None
+    source: str = ""
+
+
+class InductionData(BaseModel):
+    is_inducer: bool = False
+    induction_type: Optional[str] = None
+    fold_change: Optional[float] = None
+    source: str = ""
+
+
+class CompoundInput(BaseModel):
+    compound_name: str
+    substrate_data: Dict[str, EnzymeData]
+    inhibition_data: Dict[str, InhibitionData]
+    induction_data: Dict[str, InductionData]
+
+
+class DrugPairInput(BaseModel):
+    drug_a: CompoundInput
+    drug_b: CompoundInput
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    enzymes = [
+        "CYP1A2",
+        "CYP2B6",
+        "CYP2C8",
+        "CYP2C9",
+        "CYP2C19",
+        "CYP2D6",
+        "CYP2E1",
+        "CYP3A4",
+        "CYP3A5",
+    ]
+    template = jinja_env.get_template("index.html")
+    html_content = template.render(enzymes=enzymes)
+    return HTMLResponse(content=html_content)
+
+
+@app.get("/api/health")
+async def api_health():
+    try:
+        prediction_health = await prediction_client.health()
+        prediction_meta = await prediction_client.metadata()
+        feature_health = await feature_client.health()
+    except Exception as exc:  # pragma: no cover - defensive
+        raise HTTPException(status_code=502, detail=str(exc))
+
+    return {
+        "prediction_service": {
+            "health": prediction_health,
+            "metadata": prediction_meta,
+        },
+        "feature_service": feature_health,
+    }
+
+
+@app.post("/api/predict/enzyme")
+async def predict_dominant_enzyme(compound: CompoundInput):
+    try:
+        return await prediction_client.predict_enzyme(compound.model_dump())
+    except Exception as exc:  # pragma: no cover - defensive
+        raise HTTPException(status_code=502, detail=str(exc))
+
+
+@app.post("/api/predict/ddi")
+async def predict_ddi_risk(drug_pair: DrugPairInput):
+    try:
+        return await prediction_client.predict_ddi(drug_pair.model_dump())
+    except Exception as exc:  # pragma: no cover - defensive
+        raise HTTPException(status_code=502, detail=str(exc))
+
+
+@app.get("/api/compounds")
+async def list_compounds():
+    """List available curated compounds."""
+    curated_dir = Path(__file__).parent.parent.parent / "data" / "curated"
+    
+    if not curated_dir.exists():
+        return {"compounds": []}
+    
+    compounds = []
+    for json_file in curated_dir.glob("*.json"):
+        if json_file.name != "compound_tracking_sheet.xlsx" and not json_file.name.endswith(".md"):
+            try:
+                with open(json_file, 'r') as f:
+                    data = json.load(f)
+                    compounds.append({
+                        "id": json_file.stem,
+                        "name": data.get("compound_name", "Unknown"),
+                        "quality_rating": data.get("curation_metadata", {}).get("quality_rating", "")
+                    })
+            except:
+                pass
+    
+    return {"compounds": compounds}
+
+
+@app.get("/api/compounds/{compound_id}")
+async def get_compound(compound_id: str):
+    """Get compound data by ID."""
+    curated_dir = Path(__file__).parent.parent.parent / "data" / "curated"
+    compound_file = curated_dir / f"{compound_id}.json"
+    
+    if not compound_file.exists():
+        raise HTTPException(status_code=404, detail="Compound not found")
+    
+    with open(compound_file, 'r') as f:
+        return json.load(f)
+
+
+@app.post("/api/recommend/validation")
+async def recommend_validation(compound: CompoundInput):
+    try:
+        return await prediction_client.recommend_validation(compound.model_dump())
+    except Exception as exc:  # pragma: no cover - defensive
+        raise HTTPException(status_code=502, detail=str(exc))
+
+
+@app.get("/api/features/{compound_id}")
+async def get_features(compound_id: str):
+    try:
+        return await feature_client.get_features(compound_id)
+    except HTTPException:
+        raise
+    except Exception as exc:  # pragma: no cover - defensive
+        raise HTTPException(status_code=502, detail=str(exc))
+
+
+@app.get("/api/fetch/drug/{drug_name}")
+async def fetch_drug_data(drug_name: str):
+    """
+    Fetch drug data from APIs dynamically.
+    
+    Args:
+        drug_name: Name of the drug to fetch
+    
+    Returns:
+        Drug data from APIs
+    """
+    try:
+        # Fetch data from APIs
+        api_data = data_merger.get_consolidated_drug_data(drug_name)
+        
+        # Convert to UI format
+        enzyme_data = {
+            "substrate": {},
+            "inhibition": {},
+            "induction": {}
+        }
+        
+        # Seed from offline annotations if available
+        annotation_index = load_annotation_index()
+        annotation_key = drug_name.strip().lower()
+        if annotation_key in annotation_index:
+            for category, enzymes in annotation_index[annotation_key].items():
+                enzyme_data.setdefault(category, {}).update(enzymes)
+
+        # Add enzyme mentions from API (as substrate mentions)
+        if api_data.enzyme_data:
+            for enzyme in api_data.enzyme_data.keys():
+                enzyme_data["substrate"][enzyme] = {
+                    "is_substrate": True,
+                    "fm": None,
+                    "source": "OpenFDA API"
+                }
+        
+        # Check ChEMBL for inhibition data
+        chembl_data = data_merger.chembl.get_compound_targets(drug_name)
+        if chembl_data and chembl_data.get("enzyme_targets"):
+            for enzyme, target_info in chembl_data["enzyme_targets"].items():
+                activities = target_info.get("activities", [])
+                for activity in activities:
+                    activity_type = activity.get("type", "").lower()
+                    value = activity.get("value")
+                    
+                    # Check for inhibition data (IC50, Ki)
+                    if activity_type in ["ic50", "ki", "ki (binding)"] and value:
+                        try:
+                            ic50_value = float(value)
+                            # Determine inhibition type based on IC50 value
+                            if ic50_value < 1:
+                                inhibition_type = "strong"
+                            elif ic50_value < 10:
+                                inhibition_type = "moderate"
+                            else:
+                                inhibition_type = "weak"
+                            
+                            enzyme_data["inhibition"][enzyme] = {
+                                "is_inhibitor": True,
+                                "inhibition_type": inhibition_type,
+                                "ic50_um": ic50_value,
+                                "source": "ChEMBL API"
+                            }
+                        except:
+                            pass
+        
+        return {
+            "compound_name": drug_name,
+            "smiles": api_data.smiles,
+            "molecular_weight": api_data.molecular_weight,
+            "enzyme_data": enzyme_data,
+            "sources": api_data.sources,
+            "fm_data": api_data.fm_data
+        }
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8084)

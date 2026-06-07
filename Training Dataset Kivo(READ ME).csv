@@ -1,0 +1,21 @@
+assume 70KG MALE,,
+WHEN AND DOUBT ORAL VERSION IF USE OTHER NOTE IN NOTES,,
+inchi_key,InChIKey from PubChem,Occasionally multiple entries exist for salts
+smiles,SMILES string from PubChem or ChEMBL,Stereochemistry sometimes missing
+molecular_weight_g_mol,Molecular weight from PubChem,Check that units are g/mol
+logP,logP value from PubChem or ChEMBL,Multiple reported values exist choose experimental if possible
+pKa,Primary pKa from PubChem or literature,Some drugs have multiple pKa values
+polar_surface_area_A2,Topological polar surface area from PubChem,May be missing for some compounds
+dominant_enzyme,Primary metabolic enzyme stated in FDA Clinical Pharmacology Review,Sometimes multiple CYPs contribute avoid guessing
+metabolism_type,CYP UGT Renal or Mixed,Sometimes metabolism is unclear
+fm_dominant,Fraction metabolized by dominant enzyme if reported (0–1 scale),Often not reported leave blank if unavailable
+secondary_enzyme,Second enzyme mentioned in metabolism section,Often not clearly quantified
+dose_mg,Typical adult dose used in PK studies,Some papers report multiple dose levels
+AUC_ng_h_ml,Adult AUC from PK study,Units sometimes reported as ug*h/L convert to ng*h/mL
+Cmax_ng_ml,Adult Cmax value from PK study,Units often vary convert to ng/mL
+clearance_L_h,Systemic clearance converted to L/h,"Often reported as mL/min must convert, IF NO WEIGHT THEN DIVIDE BY 70KG"
+half_life_h,Elimination half life in hours,Sometimes reported as range
+inhibitor_tested,Drug used in DDI study (example ketoconazole quinidine),Some studies use multiple inhibitors
+enzyme_inhibited,Enzyme inhibited in that study,Sometimes inferred not stated directly
+AUC_fold_change,Increase in AUC during inhibitor study (example 3.2),Ensure it is fold change not percent
+data_source,Where the data came from (FDA review label or paper),Some sources conflict
